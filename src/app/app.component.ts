@@ -68,26 +68,6 @@ export class AppComponent implements AfterViewInit {
     this.modal?.hide();
     this.reSetValues();
   }
-
-  // upsert() {
-  //   debugger;
-  //   if (
-  //     this.selectedName == '' &&
-  //     this.selectedDescription == '' &&
-  //     this.selectedCategoryId == ''
-  //   ) {
-  //     return;
-  //   }
-  //   console.log(this.rId, 'rid');
-  //   let lastId = this.ItemsList?.length;
-  //   const newItem: any = {
-  //     id: this.rId ? this.rId : ++lastId,
-  //     name: this.selectedName,
-  //     description: this.selectedDescription,
-  //     category: this.selectedCategoryId,
-  //   };
-  //   this.ItemsList.push(newItem);
-  // }
   upsert() {
     debugger;
     if (
