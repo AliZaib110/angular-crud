@@ -51,16 +51,22 @@ export class AppComponent implements AfterViewInit {
     { id: 44, name: 'Other' },
   ];
   rId: number = 0;
+  check: boolean = false;
 
   ngAfterViewInit() {
     this.modal = new bootstrap.Modal(this.helloEl?.nativeElement, {});
   }
 
-  trigger() {
+  trigger(check: boolean) {
+    debugger;
+    if (check) {
+      this.reSetValues();
+    }
     this.modal?.toggle();
   }
   closeModal() {
     this.modal?.hide();
+    this.reSetValues();
   }
 
   // upsert() {
@@ -106,20 +112,23 @@ export class AppComponent implements AfterViewInit {
   }
 
   reSetValues() {
+    this.rId = 0;
     this.selectedName = '';
     this.selectedDescription = '';
     this.selectedCategoryId = '';
   }
 
   editRecord(id: number) {
+    debugger;
     this.rId = id;
     let itemToEdit = this.ItemsList.find((item) => item.id === id);
     if (itemToEdit) {
       this.selectedName = itemToEdit.name;
       this.selectedDescription = itemToEdit.description;
       this.selectedCategoryId = itemToEdit.category;
+      this.check = false;
     }
-    this.trigger();
+    this.trigger(this.check);
   }
 
   deleteRecord(id: number) {
