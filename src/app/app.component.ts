@@ -64,6 +64,7 @@ export class AppComponent implements AfterViewInit {
     }
     this.modal?.toggle();
   }
+
   closeModal() {
     this.modal?.hide();
     this.reSetValues();
@@ -99,7 +100,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   editRecord(id: number) {
-    debugger;
     this.rId = id;
     let itemToEdit = this.ItemsList.find((item) => item.id === id);
     if (itemToEdit) {
